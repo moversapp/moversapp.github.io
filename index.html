@@ -39,7 +39,7 @@
 				if(event.which == 13 && ValidateEmail(mail)) {
 					//subscribe
 					$.ajax({
-						url: 'https://us10.api.mailchimp.com/3.0/lists/general/members/',
+						url: 'https://us10.api.mailchimp.com/3.0/lists/2437d91daf/members/',
 						type: 'post',
 						data: {
 							email_address: mail, 
@@ -52,8 +52,8 @@
 						success: function (data) {
 							alert('Welcome ' + mail);
 						},
-						error: function() {
-							alert('Retry later');
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							alert(errorThrown);
 						}
 					});
 				}
