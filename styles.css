@@ -7,17 +7,19 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: black;
+    /*background-color: black;*/
     font-family: 'Montserrat', sans-serif;
     font-size: 1.0rem;
-    color: white;
+    /*color: white;*/
+    color: black;
 }
 
 .brand-logo {
     display: flex;
     flex-direction: column;
     margin-top: 3ex;
-    
+    /*background-color: black;*/
+    background-color: white;
     text-align: center;
     font-size: 3ex;
     color: inherit;
@@ -46,7 +48,8 @@ body {
     border: 2px solid #00C8FF;
     border-radius: 5px;
     text-align: center;
-    background-color: black;
+    /*background-color: black;*/
+	background-color: white;
     color: white;
     font-size: 2ex;
     font-family: 'Montserrat', sans-serif;
