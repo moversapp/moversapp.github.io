@@ -36,15 +36,14 @@
 		$('body').ready(function() {
 			$('#user-email').keypress(function(event) {
 				var mail = $('#user-email').val();
+				var d = {"email_address": mail, "status": 'subscribed'};
 				if(event.which == 13 && ValidateEmail(mail)) {
 					//subscribe
 					$.ajax({
-						url: 'https://us10.api.mailchimp.com/3.0/lists/2437d91daf/members/',
+						url: 'https://cors-anywhere.herokuapp.com/https://us10.api.mailchimp.com/3.0/lists/2437d91daf/members/',
 						type: 'post',
-						data: {
-							email_address: mail, 
-							status: 'subscribed'
-						},
+						data:
+							JSON.stringify(d),
 						headers: {
 							Authorization: 'apikey 9d8006a2a37be0bc976ee931625e3f1e-us10'
 						},
