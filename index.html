@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script>
+		function ValidateEmail(mail)
+		{
+			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+			{
+				return (true)
+			}
+			alert("You have entered an invalid email address!")
+			return (false)
+		}
+	</script>
+    <title>Movers</title>
+</head>
+<body>
+    <header class="main-header">
+        <a href="/" class="brand-logo">
+            <img src="logo.svg">
+            <div class="brand-slogan">The revolution is happening now</div>
+        </a>
+    </header>
+    <section class="main-newsletter">
+        <div>Subscribe to the newsletter to get updates</div>
+        <input  type="text"  
+                id="user-email"
+                class="insert-box"
+        />
+    </section>
+	<script>
+		$('body').ready(function() {
+			$('#user-email').keypress(function(event) {
+				var mail = $('#user-email').val();
+				if(event.which == 13 && ValidateEmail(mail)) {
+					//subscribe
+					$.ajax({
+						url: 'https://us10.api.mailchimp.com/3.0/lists/general/members/',
+						type: 'post',
+						data: {
+							email_address: mail, 
+							status: 'subscribed'
+						},
+						headers: {
+							Authorization: 'apikey 9d8006a2a37be0bc976ee931625e3f1e-us10'
+						},
+						dataType: 'json',
+						success: function (data) {
+							alert('Welcome ' + mail);
+						},
+						error: function() {
+							alert('Retry later');
+						}
+					});
+				}
+			});
+		});
+	</script>
+</body>
+</html>
