@@ -10,7 +10,7 @@ div {
 #logo > div {
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 100% 100px;
+	background-size: 100% 100%;
 	padding: 0;
 }
 #logo>div:nth-child(1) {
@@ -18,46 +18,38 @@ div {
 	background-position-y: -10px;
 }
 #logo>div:nth-child(2) {
-	background-image: url('./logo_center.png');
+	background-image: url('./logo_center.svg');
 	padding: 0;
 	width: 702px;
-	height: 100px;
+	height: 109px;
 }
 #logo>div:nth-child(3) {
 	background-image: url('./logo_right.png');
-	background-position-y: 21px;
+	background-position-y: 23px;
 }
 @media only screen and (max-width: 1200px) {
-	#logo > div {
-		background-size: 100% 70px;
-	}	
 	#logo>div:nth-child(2) {
 		width: 490px;
-		height: 70px;
-		background-size: 100% 70px;
+		height: 76px;
 	}
 	#logo>div:nth-child(1) {
 		background-position-y: -6px;
 	}
 	#logo>div:nth-child(3) {
-		background-position-y: 15px;
+		background-position-y: 16px;
 	}
 }
 
 @media only screen and (max-width: 490px) {
-	#logo > div {
-		background-size: 100% 49px;
-	}	
 	#logo>div:nth-child(2) {
 		width: 340px;
-		height: 49px;
-		background-size: 100% 49px;
+		height: 53px;
 	}
 	#logo>div:nth-child(1) {
 		background-position-y: -4px;
 	}
 	#logo>div:nth-child(3) {
-		background-position-y: 10px;
+		background-position-y: 11px;
 	}
 }
 .margin-bottom-medium {
