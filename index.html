@@ -9,13 +9,15 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script>
-	function ValidateEmail(mail)
+	var launched=false;
+	function ValidateEmail(mail, doAlert)
 	{
 		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && mail != 'email@example.it')
 		{
 			return (true)
 		}
-		alert("You have entered an invalid email address!")
+		if(doAlert)
+			alert("You have entered an invalid email address!")
 		return (false)
 	}
 	
@@ -95,11 +97,11 @@
 		$('body').ready(function() {
 			$('#user-email').val('email@example.it');
 			$('#user-email').focusin(function() {
-				if ($('#user-email').val() == 'email@example.it')
+				if (!ValidateEmail($('#user-email').val(), false))
 					$('#user-email').val('');
 			});
 			$('#user-email').focusout(function() {
-				if ($('#user-email').val() == '')
+				if (!ValidateEmail($('#user-email').val(), false))
 					$('#user-email').val('email@example.it');
 			});
 			jQ_fitVid($('#ref'), $('#video'));
@@ -109,25 +111,33 @@
 			$('#user-email').keypress(function(event) {
 				var mail = $('#user-email').val();
 				var d = {"email_address": mail, "status": 'subscribed'};
-				if(event.which == 13 && ValidateEmail(mail)) {
-					//subscribe
-					$.ajax({
-						url: 'https://cors-anywhere.herokuapp.com/https://us10.api.mailchimp.com/3.0/lists/2437d91daf/members/',
-						type: 'post',
-						data:
-							JSON.stringify(d),
-						headers: {
-							Authorization: 'apikey 9d8006a2a37be0bc976ee931625e3f1e-us10'
-						},
-						dataType: 'json',
-						success: function (data) {
-							alert('Welcome ' + mail);
-						},
-						error: function(XMLHttpRequest, textStatus, errorThrown) {
-							alert(errorThrown);
-						}
-					});
-				}
+				if(event.which == 13 && !launched) {
+					if(ValidateEmail(mail, true)) {
+						launched = true;
+						//subscribe
+						$.ajax({
+							url: 'https://cors-anywhere.herokuapp.com/https://us10.api.mailchimp.com/3.0/lists/2437d91daf/members/',
+							type: 'post',
+							data:
+								JSON.stringify(d),
+							headers: {
+								Authorization: 'apikey 9d8006a2a37be0bc976ee931625e3f1e-us10'
+							},
+							dataType: 'json',
+							success: function (data) {
+								$('#user-email').val('Registrato');
+								$('#user-email').prop( "disabled", true );
+								alert('Welcome ' + mail);
+							},
+							error: function(XMLHttpRequest, textStatus, errorThrown) {
+								alert("Errore, riprova!");
+							}
+						});
+					} else {
+						$('#user-email').val('');
+					}
+				} else
+					launched = false;
 			});
 		});
 	</script>

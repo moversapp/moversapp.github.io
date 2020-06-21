@@ -94,7 +94,7 @@ div.col-12:nth-child(1) > p {
 	padding: 2px 10px 2px 10px;
 	text-align: center;
 	background-color: black;
-	color: white;
+	color: white; /* TODO: "più grigia" */
 }
 
 .margin-top-small {
