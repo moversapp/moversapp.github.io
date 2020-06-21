@@ -11,7 +11,7 @@
 <script>
 	function ValidateEmail(mail)
 	{
-		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && mail != 'email@example.it')
 		{
 			return (true)
 		}
@@ -93,6 +93,15 @@
 </div>
 <script>
 		$('body').ready(function() {
+			$('#user-email').val('email@example.it');
+			$('#user-email').focusin(function() {
+				if ($('#user-email').val() == 'email@example.it')
+					$('#user-email').val('');
+			});
+			$('#user-email').focusout(function() {
+				if ($('#user-email').val() == '')
+					$('#user-email').val('email@example.it');
+			});
 			jQ_fitVid($('#ref'), $('#video'));
 			$(window).resize(function() {
 				jQ_fitVid($('#ref'), $('#video'));
