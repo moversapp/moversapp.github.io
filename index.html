@@ -5,138 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="./styles.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-	<script>
-		function ValidateEmail(mail)
+<script>
+	function ValidateEmail(mail)
+	{
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
 		{
-			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
-			{
-				return (true)
-			}
-			alert("You have entered an invalid email address!")
-			return (false)
+			return (true)
 		}
-		
-		function jQ_fitVid(ref, target) {
-			var ref_h = ref.outerHeight();
-			var ref_w = target.outerWidth();
-			var window_w = $(window).outerWidth();
-			var aspect_ratio = window_w/$(window).outerHeight();
-			if (window_w >= 1200) {
-				var target_h = ref_w/aspect_ratio;
-				if (target_h > ref_h) {
-					var margin_top = (target_h-ref_h)/2;
-					ref.css('margin-top',margin_top);
-					$("#video > iframe").height(target_h);
-				} else {
-					ref.css('margin-top', 0);
-					$("#video > iframe").height(ref_h);
-				}
-			} else {
-				var aspect_ratio = window_w/$(window).height();
-				var target_h = ref_w/aspect_ratio;
+		alert("You have entered an invalid email address!")
+		return (false)
+	}
+	
+	function jQ_fitVid(ref, target) {
+		var ref_h = ref.outerHeight();
+		var ref_w = target.outerWidth();
+		var window_w = $(window).outerWidth();
+		var aspect_ratio = window_w/$(window).outerHeight();
+		if (window_w >= 1200) {
+			var target_h = ref_w/aspect_ratio;
+			if (target_h > ref_h) {
+				var margin_top = (target_h-ref_h)/2;
+				ref.css('margin-top',margin_top);
 				$("#video > iframe").height(target_h);
+			} else {
+				ref.css('margin-top', 0);
+				$("#video > iframe").height(ref_h);
 			}
+		} else {
+			var aspect_ratio = window_w/$(window).height();
+			var target_h = ref_w/aspect_ratio;
+			$("#video > iframe").height(target_h);
 		}
-	</script>
-<style>
-body,h1 {font-family: "Montserrat", sans-serif}
-body, html {height: 100%}
-div {
-	max-width: 100%;
-}
-#logo {
-	margin: 0;
-	padding-top: 2px;
-}
-#logo > div {
-	background-position: center;
-	background-repeat: no-repeat;
-	min-height: 100px;
-	background-size: 100% 100px;
-	padding: 0;
-}
-#logo>div:nth-child(1) {
-	background-image: url('./logo_left.png');
-	background-size: 100% 82%;
-}
-#logo>div:nth-child(2) {
-	background-image: url('./logo_center.png');
-	padding: 0;
-}
-#logo>div:nth-child(3) {
-	background-image: url('./logo_right.png');
-	background-position-y: 21px;
-}
-.margin-bottom-medium {
-	margin-bottom: 3vh;
-}
-.font-medium {
-	font-family: Montserrat;
-	font-size: 30px;
-}
-.font-small {
-	font-family: Montserrat;
-	font-size: 24px;
-}
-.no-padding {
-	padding: 0;
-}
-.no-margin {
-	margin-left: 0;
-	margin-right: 0;
-}
-.full-width {
-	width: 100%;
-}
-.padding-small {
-	padding-left: 10px;
-	padding-right: 10px;
-}
-div.col-12:nth-child(1) > p {
-	margin-top: 20px;
-}
-#video > iframe {
-	width: 100%;	
-}
-
-#ref {
-	padding-top: 2vh;
-	padding-bottom: 2vh;
-}
-#user-email {
-	border-radius: 10px;
-	border: 2px solid #1ecfff;
-	padding: 2px 10px 2px 10px;
-	text-align: center;
-}
-
-.margin-top-small {
-	margin-top: 1.5vh;
-}
-.margin-top-medium {
-	margin-top: 3vh;
-}
-.margin-bottom-medium {
-	margin-bottom: 3vh;
-}
-.margin-top-large {
-	margin-top: 6vh;
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1269px) {
-	.margin-top-small {
-		margin-top: 0.5vh;
 	}
-	.margin-top-medium {
-		margin-top: 1vh;
-	}
-	.margin-top-large {
-		margin-top: 3vh;
-	}
-}
-</style>
+</script>
 <body>
 <div class="bgcolor">
 	<!-- Logo -->
@@ -180,7 +84,7 @@ div.col-12:nth-child(1) > p {
 					<p class="font-small no-padding no-margin" align="center">Iscriviti alla nostra newsletter per rimanere aggiornato</p>
 				</div>
 				<div class="full-width">
-					<input id="user-email" class="full-width margin-top-small"></input>
+					<input id="user-email" class="full-width margin-top-small font-medium"></input>
 				</div>
 			</div>
 			<div class="col"></div>
