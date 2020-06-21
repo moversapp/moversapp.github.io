@@ -61,7 +61,7 @@ div {
 	}
 }
 .margin-bottom-medium {
-	margin-bottom: 3vh;
+	margin-bottom: 6vh;
 }
 .font-medium {
 	font-family: Montserrat;
@@ -112,7 +112,7 @@ div.col-12:nth-child(1) > p {
 	margin-top: 3vh;
 }
 .margin-bottom-medium {
-	margin-bottom: 3vh;
+	margin-bottom: 6vh;
 }
 .margin-top-large {
 	margin-top: 6vh;
