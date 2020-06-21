@@ -69,14 +69,8 @@ div {
 	background-image: url('./logo_right.png');
 	background-position-y: 21px;
 }
-.margin-top-small {
-	margin-top: 1.5vh;
-}
-.margin-top-medium {
-	margin-top: 3vh;
-}
-.margin-top-large {
-	margin-top: 6vh;
+.margin-bottom-medium {
+	margin-bottom: 3vh;
 }
 .font-medium {
 	font-family: Montserrat;
@@ -117,6 +111,31 @@ div.col-12:nth-child(1) > p {
 	padding: 2px 10px 2px 10px;
 	text-align: center;
 }
+
+.margin-top-small {
+	margin-top: 1.5vh;
+}
+.margin-top-medium {
+	margin-top: 3vh;
+}
+.margin-bottom-medium {
+	margin-bottom: 3vh;
+}
+.margin-top-large {
+	margin-top: 6vh;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1269px) {
+	.margin-top-small {
+		margin-top: 0.5vh;
+	}
+	.margin-top-medium {
+		margin-top: 1vh;
+	}
+	.margin-top-large {
+		margin-top: 3vh;
+	}
+}
 </style>
 <body>
 <div class="bgcolor">
@@ -154,7 +173,7 @@ div.col-12:nth-child(1) > p {
 			<div class="col-0 col-md-1"></div>
 		</div>
 		<!-- Newsletter -->
-		<div class="row margin-top-medium no-margin">
+		<div class="row margin-top-medium margin-bottom-medium no-margin">
 			<div class="col"></div>
 			<div class="col-auto">
 				<div class="full-width">
