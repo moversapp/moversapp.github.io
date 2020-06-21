@@ -27,7 +27,7 @@ div {
 	background-image: url('./logo_right.png');
 	background-position-y: 21px;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) and (min-width: 491px) {
 	#logo>div:nth-child(2) {
 		width: 490px;
 		height: 70px;
@@ -35,6 +35,17 @@ div {
 	}
 	#logo>div:nth-child(3) {
 		background-position-y: 14px;
+	}
+}
+
+@media only screen and (max-width: 490px) {
+	#logo>div:nth-child(2) {
+		width: 340px;
+		height: 49px;
+		background-size: 100% 49px;
+	}
+	#logo>div:nth-child(3) {
+		background-position-y: 10px;
 	}
 }
 .margin-bottom-medium {
