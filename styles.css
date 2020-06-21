@@ -10,7 +10,6 @@ div {
 #logo > div {
 	background-position: center;
 	background-repeat: no-repeat;
-	min-height: 100px;
 	background-size: 100% 100px;
 	padding: 0;
 }
@@ -21,10 +20,22 @@ div {
 #logo>div:nth-child(2) {
 	background-image: url('./logo_center.png');
 	padding: 0;
+	width: 702px;
+	height: 100px;
 }
 #logo>div:nth-child(3) {
 	background-image: url('./logo_right.png');
 	background-position-y: 21px;
+}
+@media only screen and (max-width: 1200px) {
+	#logo>div:nth-child(2) {
+		width: 490px;
+		height: 70px;
+		background-size: 100% 70px;
+	}
+	#logo>div:nth-child(3) {
+		background-position-y: 14px;
+	}
 }
 .margin-bottom-medium {
 	margin-bottom: 3vh;
