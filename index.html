@@ -87,7 +87,14 @@
 					<p class="font-small no-padding no-margin" align="center">Ti invieremo aggiornamenti su Movers</p>
 				</div>
 				<div class="full-width">
-					<input id="user-email" class="full-width margin-top-small font-medium"></input>
+					<div class="row no-margin full-width margin-top-small">
+						<div class="col-12 col-md-8 no-padding">
+							<input type="email" id="user-email" class="full-width font-medium padding-small"></input>
+						</div>
+						<div class="col-12 col-md-4 no-padding-right">
+							<input type="button" id="subscribe" class="full-width font-small" value="Iscrivimi"></input>
+						</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col"></div>
@@ -139,6 +146,34 @@
 					}
 				} else
 					launched = false;
+			});
+			$('#subscribe').click(function() {
+				var mail = $('#user-email').val();
+				var d = {"email_address": mail, "status": 'subscribed'};
+				if(ValidateEmail(mail, true)) {
+					launched = true;
+					//subscribe
+					$.ajax({
+						url: 'https://cors-anywhere.herokuapp.com/https://us10.api.mailchimp.com/3.0/lists/2437d91daf/members/',
+						type: 'post',
+						data:
+							JSON.stringify(d),
+						headers: {
+							Authorization: 'apikey 9d8006a2a37be0bc976ee931625e3f1e-us10'
+						},
+						dataType: 'json',
+						success: function (data) {
+							$('#user-email').val('Registrato');
+							$('#user-email').prop( "disabled", true );
+							alert('Welcome ' + mail);
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							alert("Errore, riprova!");
+						}
+					});
+				} else {
+					$('#user-email').val('');
+				}
 			});
 		});
 	</script>

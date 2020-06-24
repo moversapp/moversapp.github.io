@@ -66,6 +66,9 @@ div {
 .no-padding {
 	padding: 0;
 }
+.no-padding-right {
+	padding-right: 0;
+}
 .no-margin {
 	margin-left: 0;
 	margin-right: 0;
@@ -89,12 +92,30 @@ div.col-12:nth-child(1) > p {
 	padding-bottom: 2vh;
 }
 #user-email {
-	border-radius: 10px;
+	border-radius: 5px;
 	border: 2px solid #1ecfff;
 	padding: 2px 10px 2px 10px;
 	text-align: center;
 	background-color: black;
 	color: #888;
+}
+
+#subscribe {
+	border-radius: 5px;
+	border: 2px solid #1ecfff;
+	padding: 2px 10px 2px 10px;
+	text-align: center;
+	background-color: #1ecfff;
+	color: black;
+	min-width: 98px;
+	min-height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+	html body div.bgcolor div.margin-top-large div.row.margin-top-medium.margin-bottom-medium.no-margin div.col-auto div.full-width div.row.no-margin.full-width.margin-top-small div.col-12.col-md-4 {
+		margin-top: 1.5vh;
+		padding-left: 0;
+	}
 }
 
 .margin-top-small {
