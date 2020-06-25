@@ -3,6 +3,25 @@ body, html {height: 100%; background-color: black; color: white;}
 div {
 	max-width: 100%;
 }
+h1 {
+	font-weight: 800;
+	font-size: 80px;
+	line-height: 98px;
+}
+
+p {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 26px;
+	line-height: 32px;
+}
+b {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 26px;
+	line-height: 32px;
+}
 #logo {
 	margin: 0;
 	padding-top: 40px;
@@ -57,7 +76,7 @@ div {
 }
 .font-medium {
 	font-family: Montserrat;
-	font-size: 30px;
+	font-size: 26px;
 }
 .font-small {
 	font-family: Montserrat;
@@ -69,6 +88,19 @@ div {
 .no-padding-right {
 	padding-right: 0;
 }
+.no-padding-left {
+	padding-left: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+	.no-padding-left {
+		padding: 0;
+	}
+	.no-padding-right {
+		padding: 0;
+	}
+}
+
 .no-margin {
 	margin-left: 0;
 	margin-right: 0;
@@ -91,7 +123,7 @@ div.col-12:nth-child(1) > p {
 	padding-top: 2vh;
 	padding-bottom: 2vh;
 }
-#user-email {
+input[type=text],input[type=email] {
 	border-radius: 5px;
 	border: 2px solid #1ecfff;
 	padding: 2px 10px 2px 10px;
@@ -100,7 +132,7 @@ div.col-12:nth-child(1) > p {
 	color: #888;
 }
 
-#subscribe {
+input[type=submit] {
 	border-radius: 5px;
 	border: 2px solid #1ecfff;
 	padding: 2px 10px 2px 10px;
