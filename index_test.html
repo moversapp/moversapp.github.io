@@ -9,17 +9,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script>
-	var launched=false;
-	function ValidateEmail(mail, doAlert)
-	{
-		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && mail != 'email@example.it')
-		{
-			return (true)
-		}
-		if(doAlert)
-			alert("You have entered an invalid email address!")
-		return (false)
-	}
+	var language = navigator.language || navigator.userLanguage;
 	
 	function jQ_fitVid(ref, target) {
 		var ref_h = ref.outerHeight();
@@ -61,10 +51,14 @@
 					<div class="col-12 col-xl-5 margin-bottom-medium">
 						<div style="height: auto;" id="ref">
 							<div>
-								<h1>Cos’è Movers?</h1>
-								<p align="left" class="font-medium">Movers <b>è la piattaforma che ti permette di accedere a tutti i tuoi servizi di mobilità preferiti (monopattino, bici, scooter) in un unico abbonamento collegato con i mezzi pubblici!</b></p>
-								<p align="left" class="font-medium">Guarda il video per scoprire come funziona!</p>
-								<p align="left" class="font-medium"><b>Iscriviti</b> per essere contattato non appena l’app sarà <b>dipsonibile</b></p>
+								<h1 class="ita">Cos’è Movers?</h1>
+								<h1 class="eng">What is Movers?</h1>
+								<p align="left" class="font-medium ita">Movers <b>è la piattaforma che ti permette di accedere a tutti i tuoi servizi di mobilità preferiti (monopattino, bici, scooter) in un unico abbonamento collegato con i mezzi pubblici!</b></p>
+								<p align="left" class="font-medium eng">Movers <b>is the platform that allows you to access to all your preferred mobility services and the public transport with a single subscription!</b></p>
+								<p align="left" class="font-medium ita">Guarda il video per scoprire come funziona!</p>
+								<p align="left" class="font-medium eng">Watch the video to see how it works!</p>
+								<p align="left" class="font-medium ita"><b>Iscriviti</b> per essere contattato non appena l’app sarà <b>dipsonibile</b></p>
+								<p align="left" class="font-medium eng"><b>Subscribe</b> to the newsletter to stay in touch and be notified as soon as the app will be <b>available</b></p>
 							</div>
 							<!-- Newsletter -->
 							<div class="full-width no-margin no-padding">
@@ -75,13 +69,13 @@
 											<form action="https://moversapp.us10.list-manage.com/subscribe/post?u=1483c8f0494cb5699895ed7fe&amp;id=2437d91daf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 												<div id="mc_embed_signup_scroll" class="row no-margin">
 													<div class="mc-field-group col-12 col-xl-6 margin-top-small no-padding-left">
-														<input type="text" value="" name="FNAME" class="full-width font-small" id="mce-FNAME" value="Nome">
+														<input type="text" value="" name="FNAME" class="full-width font-small" id="mce-FNAME">
 													</div>
 													<div class="mc-field-group col-12 col-xl-6 margin-top-small no-padding-right">
-														<input type="text" value="" name="LNAME" class="full-width font-small" id="mce-LNAME" value="Cognome">
+														<input type="text" value="" name="LNAME" class="full-width font-small" id="mce-LNAME">
 													</div>
 													<div class="mc-field-group col-12 col-xl-8 margin-top-small no-padding-left">
-														<input type="email" value="" name="EMAIL" class="required email full-width font-small" id="mce-EMAIL" value="email">
+														<input type="email" value="" name="EMAIL" class="required email full-width font-small" id="mce-EMAIL">
 													</div>
 													<div id="mce-responses" class="clear">
 														<div class="response" id="mce-error-response" style="display:none"></div>
@@ -113,9 +107,21 @@
 </div>
 <script>
 		$('body').ready(function() {
-			$('#mce-EMAIL').val('email@example.it');
-			$('#mce-FNAME').val('Nome');
-			$('#mce-LNAME').val('Cognome');
+			if (language == 'it-IT') {
+				$('#mce-EMAIL').val('email@example.it');
+				$('#mce-FNAME').val('Nome');
+				$('#mce-LNAME').val('Cognome');
+				$('.eng').each(function(i,x) {
+					$(this).css('display', 'none');
+				});
+			} else {
+				$('#mce-EMAIL').val('email@example.com');
+				$('#mce-FNAME').val('First Name');
+				$('#mce-LNAME').val('Last Name');
+				$('.ita').each(function(i, x) {
+					$(this).css('display', 'none');
+				});
+			}
 			$('#mce-EMAIL').focusin(function() {
 				if (!ValidateEmail($('#mce-EMAIL').val(), false))
 					$('#mce-EMAIL').val('');
@@ -125,20 +131,26 @@
 					$('#mce-EMAIL').val('email@example.it');
 			});
 			$('#mce-FNAME').focusin(function() {
-				if ($('#mce-FNAME').val() == 'Nome')
+				if ($('#mce-FNAME').val() == 'Nome' || $('#mce-FNAME').val() == 'First Name')
 					$('#mce-FNAME').val('');
 			});
 			$('#mce-FNAME').focusout(function() {
 				if ($('#mce-FNAME').val() == '')
-					$('#mce-FNAME').val('Nome');
+					if (language == 'it-IT')
+						$('#mce-FNAME').val('Nome');
+					else
+						$('#mce-FNAME').val('First Name');
 			});
 			$('#mce-LNAME').focusin(function() {
-				if ($('#mce-LNAME').val() == 'Cognome')
+				if ($('#mce-LNAME').val() == 'Cognome' || $('#mce-LNAME').val() == 'Last Name')
 					$('#mce-LNAME').val('');
 			});
 			$('#mce-LNAME').focusout(function() {
 				if ($('#mce-LNAME').val() == '')
-					$('#mce-LNAME').val('Cognome');
+					if (language == 'it-IT')
+						$('#mce-LNAME').val('Cognome');
+					else
+						$('#mce-LNAME').val('Last Name');
 			});
 			jQ_fitVid($('#ref'), $('#video'));
 			$(window).resize(function() {
