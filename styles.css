@@ -10,17 +10,10 @@ h1 {
 }
 
 p {
-	font-style: normal;
-	font-weight: normal;
-	font-size: 26px;
-	line-height: 32px;
+	
 }
 b {
-	font-family: Montserrat;
-	font-style: normal;
 	font-weight: bold;
-	font-size: 26px;
-	line-height: 32px;
 }
 #logo {
 	margin: 0;
@@ -76,11 +69,17 @@ b {
 }
 .font-medium {
 	font-family: Montserrat;
-	font-size: 26px;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 32px;
 }
 .font-small {
 	font-family: Montserrat;
-	font-size: 24px;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 32px;
 }
 .no-padding {
 	padding: 0;
