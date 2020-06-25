@@ -191,6 +191,7 @@
 			$(window).resize(function() {
 				jQ_fitVid($('#ref'), $('#video'), $("#video > iframe"));
 			});
+			window.dispatchEvent(new Event('resize'));
 		});
 	</script>
 </body>
