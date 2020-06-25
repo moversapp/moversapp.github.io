@@ -11,9 +11,9 @@
 <script>
 	var language = navigator.language || navigator.userLanguage;
 	
-	function jQ_fitVid(ref, target) {
+	function jQ_fitVid(ref, targetDiv, target) {
 		var ref_h = ref.outerHeight();
-		var ref_w = target.outerWidth();
+		var ref_w = targetDiv.outerWidth();
 		var window_w = $(window).outerWidth();
 		var aspect_ratio = window_w/$(window).outerHeight();
 		if (window_w >= 1200) {
@@ -21,28 +21,28 @@
 			if (target_h > ref_h) {
 				var margin_top = (target_h-ref_h)/2;
 				ref.css('margin-top',margin_top);
-				$("#video > iframe").height(target_h);
+				target.height(target_h);
 			} else {
 				ref.css('margin-top', 0);
-				$("#video > iframe").height(ref_h);
+				target.height(ref_h);
 			}
 		} else {
 			var aspect_ratio = window_w/$(window).height();
 			var target_h = ref_w/aspect_ratio;
-			$("#video > iframe").height(target_h);
+			target.height(target_h);
 		}
 	}
 </script>
 <body>
-<div class="bgcolor">
+<div>
 	<!-- Logo -->
-	<div id="logo" class="row">
+	<div id="logo" class="row bgcolor">
 		<div class="col"></div>
 		<div></div>
 		<div class="col"></div>
 	</div>
 	<!-- Content -->
-	<div class="margin-top-large">
+	<div class="margin-top-large bgcolor">
 		<div class="row no-margin">
 			<div class="col-0 col-xl-1"></div>
 			<div class="col-12 col-xl-10 no-padding">
@@ -105,6 +105,29 @@
 			<div class="col-0 col-md-1"></div>
 		</div>
 	</div>
+	<!-- Team -->
+	<div class="row no-margin margin-top-large">
+		<div class="col-0 col-xl-1"></div>
+		<div class="col-12 col-xl-10 no-padding">
+			<div class="row no-margin">
+				<div class="col-12 col-xl-6 margin-bottom-medium my-align-middle">
+					<img src="imgs/team.png"/>
+				</div>
+				<div class="col-0 col-xl-1"></div>
+				<div class="col-12 col-xl-5 margin-bottom-medium small-1">
+					<div id="ref2">
+						<h1 class="ita">Chi Siamo?</h1>
+						<h1 class="eng">Who are we?</h1>
+						<p align="left" class="font-medium margin-top-medium ita"><b>Alessandro</b>, <b>Andrea</b>, <b>Riccardo</b>, <b>Stefano</b> e <b>Tommaso</b>. Siamo cinque intraprendenti studenti di ingegneria dell’Alta Scuola Politecnica. Abbiamo backrounds e competenze differenti, ma anche un obiettivo comune: permettere alle persone di muoversi in maniera sostenibile all’interno delle nostre città!</p>
+						<p align="left" class="font-medium margin-top-medium eng"><b>Alessandro</b>, <b>Andrea</b>, <b>Riccardo</b>, <b>Stefano</b> and <b>Tommaso</b>. We are 5 enterprising engineering students from the Alta Scuola Politecnica. We have different backrounds and skills. However, we share the same common goal: allow people to move sustainable inside our cities!</p>
+						<p align="left" class="font-medium margin-top-medium ita">Contattaci!</br>Scrivi a: <b>postmaster@moversapp.it</b></p>
+						<p align="left" class="font-medium margin-top-medium eng">Contact Us!</br>Write to: <b>postmaster@moversapp.it</b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-0 col-xl-1"></div>
+	</div>
 </div>
 <script>
 		$('body').ready(function() {
@@ -153,9 +176,9 @@
 					else
 						$('#mce-LNAME').val('Last Name');
 			});
-			jQ_fitVid($('#ref'), $('#video'));
+			jQ_fitVid($('#ref'), $('#video'), $("#video > iframe"));
 			$(window).resize(function() {
-				jQ_fitVid($('#ref'), $('#video'));
+				jQ_fitVid($('#ref'), $('#video'), $("#video > iframe"));
 			});
 		});
 	</script>
