@@ -149,12 +149,15 @@
 				});
 			}
 			$('#mce-EMAIL').focusin(function() {
-				if (!ValidateEmail($('#mce-EMAIL').val(), false))
+				if ($('#mce-EMAIL').val() == 'email@example.it' || $('#mce-EMAIL').val() == 'email@example.com')
 					$('#mce-EMAIL').val('');
 			});
 			$('#mce-EMAIL').focusout(function() {
-				if (!ValidateEmail($('#mce-EMAIL').val(), false))
-					$('#mce-EMAIL').val('email@example.it');
+				if ($('#mce-EMAIL').val() == '')
+					if (language == 'it-IT')
+						$('#mce-EMAIL').val('email@example.it');
+					else
+						$('#mce-EMAIL').val('email@example.com');
 			});
 			$('#mce-FNAME').focusin(function() {
 				if ($('#mce-FNAME').val() == 'Nome' || $('#mce-FNAME').val() == 'First Name')
